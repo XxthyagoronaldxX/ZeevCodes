@@ -29,5 +29,5 @@ a função altera o comportamento do botão concluir, onde o botão só estara a
 <h3>4 - ValidPeopleInPositionInTeam</h3>
 
 <p>Função responsável por realizar verificação na base de dados da própria Zeev para determinar se existe ou não colaboradores em um função em um certo time, issa funcionalidade
- é na maioria dos processos, onde em todos os processos segue-se o seguinte fluxo:</p>
+ é na maioria dos processos, para realizar uma operação de fluxo de aprovação por toda a hierarquia, onde em nesses processos segue-se o seguinte fluxo:</p>
 <img src="https://github.com/XxthyagoronaldxX/ZeevCodes/assets/16446463/4e8ee5ce-12bd-4364-9245-8cc6bdd68bda"/>
