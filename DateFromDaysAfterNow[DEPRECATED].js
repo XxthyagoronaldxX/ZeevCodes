@@ -1,3 +1,5 @@
+// DEPRECATED
+
 function dateFromDaysAfterNow(days) {
   const dateStart = document.getElementById('inpinicioDaSolicitacao');
   const [day, month, year] = dateStart.value.split("/");
