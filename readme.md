@@ -18,5 +18,13 @@ no componente T01. Essa função tira a diferença entre o campo de Hora Inicial
 a função altera o comportamento do botão concluir, onde o botão só estara ativo quando for passado uma Hora Inicial e Final válidas.</p>
 <img src="https://github.com/XxthyagoronaldxX/ZeevCodes/assets/16446463/79f691b8-951b-4793-a23f-9fa69ca0447a"/>
 
+<h3>3 - ShowDocumentsByContract</h3>
 
+<p>Função responsável por escolher um determinado conjunto de documentos para realizar o processo de admissão de acordo com a modalidade de contratamento:</p>
+<img src="https://github.com/XxthyagoronaldxX/ZeevCodes/assets/16446463/6c199fe6-b278-4752-8664-e7829435a948"/>
+<h6>Esse formulário é preenchido no processo [RECRUTAMENTO_pt4_Emissão de Contrato de Trabalho], no componente T01.</h6>
+<img src="https://github.com/XxthyagoronaldxX/ZeevCodes/assets/16446463/6d6c86cf-a633-4bac-981b-6cf536b661cb"/>
+<h6>Esse formulário está localizado no processo [RECRUTAMENTO_pt4_Emissão de Contrato de Trabalho], no componente T02.</h6>
+
+<h3>4 - ValidPeopleInPositionInTeam</h3>
 
