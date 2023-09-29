@@ -7,3 +7,5 @@
 <p>Função responsável por gerar checkBox dinâmico de acordo com as seleções realizadas no formulário do zeev:</p>
 <img src="https://github.com/XxthyagoronaldxX/ZeevCodes/assets/16446463/fe0c1910-9ec8-4317-a526-ffcdebad4fa1" alt="Zeev Form" />
 <h6>Esse formulário é preenchido no processo [RECRUTAMENTO_pt3_Admissão de um Novo Colaborador], no componente T01.</h6>
+<p>Os checkbox gerados estão localizados no processo [RECRUTAMENTO_pt4_Emissão de Contrato de Trabalho], no componente T06. A função é
+efetivamente executada neste mesmo processo e no componente T01.</p>
