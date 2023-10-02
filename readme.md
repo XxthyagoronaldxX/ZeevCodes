@@ -12,9 +12,9 @@
 efetivamente executada neste mesmo processo e no componente T01.</p>
 
 <h3>2 - HoursDiffCalc</h3>
-  
-<p>Função responsável por calcular a diferença entre dois campos de horários no Zeev. Essa função é utilizada no processo [Solicitação de Horas Extras], 
-no componente T01. Essa função tira a diferença entre o campo de Hora Inicial e Hora Final, e preenche automaticamente no campo de Horas Extras, além disso 
+
+<p>Função responsável por calcular a diferença entre dois campos de horários no Zeev. Essa função é utilizada no processo [Solicitação de Horas Extras],
+no componente T01. Essa função tira a diferença entre o campo de Hora Inicial e Hora Final, e preenche automaticamente no campo de Horas Extras, além disso
 a função altera o comportamento do botão concluir, onde o botão só estara ativo quando for passado uma Hora Inicial e Final válidas.</p>
 <img src="https://github.com/XxthyagoronaldxX/ZeevCodes/assets/16446463/79f691b8-951b-4793-a23f-9fa69ca0447a"/>
 
