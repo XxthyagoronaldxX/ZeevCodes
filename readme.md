@@ -31,3 +31,13 @@ a função altera o comportamento do botão concluir, onde o botão só estara a
 <p>Função responsável por realizar verificação na base de dados da própria Zeev para determinar se existe ou não colaboradores em um função em um certo time, issa funcionalidade
  é na maioria dos processos, para realizar uma operação de fluxo de aprovação por toda a hierarquia, onde em nesses processos segue-se o seguinte fluxo:</p>
 <img src="https://github.com/XxthyagoronaldxX/ZeevCodes/assets/16446463/4e8ee5ce-12bd-4364-9245-8cc6bdd68bda"/>
+
+<h3>5 - SendDocumentToAdobeSign</h3>
+
+<p>Função é responsável por adicionar um EventListener no botão de concluir da tarefa do Zeev, onde nesse Event o documento que foi feito upload na tarefa é enviado para o AdobeSign.</p>
+<img src="https://github.com/XxthyagoronaldxX/ZeevCodes/assets/16446463/9d7d9250-999f-4f7f-8b77-2a6601aad606"/>
+<h6>Essa tarefa está localizada no processo [RECRUTAMENTO_pt2.1_Recrutamento e Seleção], e na tarefa T03.</h6>
+<p>Porém, o arquivo para ser enviado efetivamente para assinatura e vincular assinantes e até mesmo escutar o evento de quando o arquivo foi assinado efetivamente é utilizado do 
+próprio serviço de integração do Zeev.</p>
+<img src="https://github.com/XxthyagoronaldxX/ZeevCodes/assets/16446463/3d42eca6-5e1e-460f-9402-da0cb5e72001"/>
+<h6>Esse processo é um template para a integração ao Adobe Sign.</h6>
