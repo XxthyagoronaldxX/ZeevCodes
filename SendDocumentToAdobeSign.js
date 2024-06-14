@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
       method: "POST",
       body: form,
       headers: {
-        Authorization: "Bearer 3AAABLblqZhBCnOJxNy6FLWHoBkpiviUoAwMZfgaXA5PVF9hY1w7lznNUsQDhas1MNtJpbRYkjdxP9s8t5dI48aLgpHDCav1p"
+        Authorization: "Bearer "
       }
     });
 
