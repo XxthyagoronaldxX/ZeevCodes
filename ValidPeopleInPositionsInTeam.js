@@ -1,7 +1,7 @@
 const fetchConfig = {
   headers:
   {
-    Authorization: 'Bearer hEteRmuWyQWIpK9yfxCtHG23HlGWw%2BkjVsHUMiFLnD7K7zjUlICZMI%2FxuxTdASTOc2swJzJzsomWptv1UwbykRNOXQzAJL%2FZ3RNCH7cXXBI%3D'
+    Authorization: 'Bearer '
   }
 };
 
