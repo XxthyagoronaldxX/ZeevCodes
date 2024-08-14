@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', async function(event) {
   const startDateElement = document.getElementById("inpdataDeInicio");
   const endDateElement = document.getElementById("inpdataFinal");
   const totalHoursAccElement = document.getElementById("inptotalDeHorasUtilizadas");
+  const sendBtnElement = document.getElementById("BtnSend");
 
   function transformDDMMYYYInDate(dateStr) {
     const [day, month, year] = dateStr.split("/");
@@ -41,11 +42,23 @@ document.addEventListener('DOMContentLoaded', async function(event) {
     totalHoursAccElement.value = (days + 1) * 8;
   }
 
+  totalHoursAccElement.setAttribute("disabled", "");
+
+  sendBtnElement.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    totalHoursAccElement.removeAttribute("disabled");
+  });
+
   startDateElement.addEventListener("change", (event) => {
+    event.preventDefault();
+
     calcTotalHoursByPeriod(event.target.value, endDateElement.value);
   });
 
   endDateElement.addEventListener("change", (event) => {
+    event.preventDefault();
+
     calcTotalHoursByPeriod(startDateElement.value, event.target.value);
   });
 });
