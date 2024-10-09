@@ -1,64 +1,64 @@
-document.addEventListener('DOMContentLoaded', async function(event) {
-  const startDateElement = document.getElementById("inpdataDeInicio");
-  const endDateElement = document.getElementById("inpdataFinal");
-  const totalHoursAccElement = document.getElementById("inptotalDeHorasUtilizadas");
-  const sendBtnElement = document.getElementById("BtnSend");
+document.addEventListener('DOMContentLoaded', async function (event) {
+   const startDateElement = document.getElementById("inpdataDeInicio");
+   const endDateElement = document.getElementById("inpdataFinal");
+   const totalHoursAccElement = document.getElementById("inptotalDeHorasUtilizadas");
+   const sendBtnElement = document.getElementById("BtnSend");
 
-  function transformDDMMYYYInDate(dateStr) {
-    const [day, month, year] = dateStr.split("/");
+   function transformDDMMYYYInDate(dateStr) {
+      const [day, month, year] = dateStr.split("/");
 
-    return new Date(year, month - 1, day);
-  }
+      return new Date(year, month - 1, day);
+   }
 
-  function transformDateInDDMMYYYY(date) {
-    const day = String(date.getDate()).padStart(2, "0");
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const year = date.getFullYear();
+   function transformDateInDDMMYYYY(date) {
+      const day = String(date.getDate()).padStart(2, "0");
+      const month = String(date.getMonth() + 1).padStart(2, "0");
+      const year = date.getFullYear();
 
-    return day + "/" + month + "/" + year;
-  }
+      return day + "/" + month + "/" + year;
+   }
 
-  function getDaysDifference(date1, date2) {
-    const timeDiff = Math.abs(date2.getTime() - date1.getTime());
+   function getDaysDifference(date1, date2) {
+      const timeDiff = Math.abs(date2.getTime() - date1.getTime());
 
-    const dayDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+      const dayDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
 
-    return dayDiff;
-  }
+      return dayDiff;
+   }
 
-  function calcTotalHoursByPeriod(startDateStr, endDateStr) {
-    if (endDateStr === "" || startDateStr === "") return;
+   function calcTotalHoursByPeriod(startDateStr, endDateStr) {
+      if (endDateStr === "" || startDateStr === "") return;
 
-    let startDate = transformDDMMYYYInDate(startDateStr);
-    let endDate = transformDDMMYYYInDate(endDateStr);
+      let startDate = transformDDMMYYYInDate(startDateStr);
+      let endDate = transformDDMMYYYInDate(endDateStr);
 
-    if (startDate > endDate) {
-      endDate = startDate;
-      endDateElement.value = transformDateInDDMMYYYY(endDate);
-    }
+      if (startDate > endDate) {
+         endDate = startDate;
+         endDateElement.value = transformDateInDDMMYYYY(endDate);
+      }
 
-    const days = getDaysDifference(startDate, endDate);
+      const days = getDaysDifference(startDate, endDate);
 
-    totalHoursAccElement.value = (days + 1) * 8;
-  }
+      totalHoursAccElement.value = (days + 1) * 8;
+   }
 
-  totalHoursAccElement.setAttribute("disabled", "");
+   totalHoursAccElement.setAttribute("disabled", "");
 
-  sendBtnElement.addEventListener("click", (event) => {
-    event.preventDefault();
+   sendBtnElement.addEventListener("click", (event) => {
+      event.preventDefault();
 
-    totalHoursAccElement.removeAttribute("disabled");
-  });
+      totalHoursAccElement.removeAttribute("disabled");
+   });
 
-  startDateElement.addEventListener("change", (event) => {
-    event.preventDefault();
+   startDateElement.addEventListener("change", (event) => {
+      event.preventDefault();
 
-    calcTotalHoursByPeriod(event.target.value, endDateElement.value);
-  });
+      calcTotalHoursByPeriod(event.target.value, endDateElement.value);
+   });
 
-  endDateElement.addEventListener("change", (event) => {
-    event.preventDefault();
+   endDateElement.addEventListener("change", (event) => {
+      event.preventDefault();
 
-    calcTotalHoursByPeriod(startDateElement.value, event.target.value);
-  });
+      calcTotalHoursByPeriod(startDateElement.value, event.target.value);
+   });
 });

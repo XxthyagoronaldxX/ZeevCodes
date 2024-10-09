@@ -1,54 +1,54 @@
-const fetchConfig = {
-  headers:
-  {
-    Authorization: 'Bearer '
-  }
-};
+document.addEventListener('DOMContentLoaded', async function (event) {
+   async function findUserById(id) {
+      const url = `https://netbiis.zeev.it/api/internal/legacy/1.0/datasource/get/1.0/q4qTUJhdUjldZhevX46e@zT@7ilNEPN5rpl`
+         + `xiW11zNrbG82PAEaKp9NK1LOM2ST04hTUvt3tyH2-xfJZpCQWPQ__?inpuserId=${id}`;
 
-async function getRequesterTeamCode(teamName) {
-  const fetchData = await fetch('https://netbiis.zeev.it/api/2/teams', fetchConfig);
+      return (await fetch(url)).json();
+   }
 
-  const teams = await fetchData.json();
+   async function findAllUsersByTeamCodeAndPositionCode(teamCode, positionCode) {
+      const url = `https://netbiis.zeev.it/api/internal/legacy/1.0/datasource/get/1.0/q4qTUJhdUjldZhevX46e@-6gUlkf-uV7h4dL8cjT@pIZo7kkcfasKUsFF`
+      + `jyqWz7QaShHkomVFFoDmk@0xQxwGA__?inpteamCode=${teamCode}&inppositionCode=${positionCode}`;
 
-  const requesterTeam = teams.find((team) => {
-    if (team.name === teamName) return true;
-    else return false;
-  });
+      return (await fetch(url)).json();
+   }
 
-  return requesterTeam.code;
-}
+   async function validPeopleInPositionsBy(teamCode) {
+      const positions = [
+         {
+            code: "coordenador-9ce9538b",
+            formId: "inpexisteCoordenador"
+         },
+         {
+            code: "supervisor-1d1ef7b6",
+            formId: "inpexisteSupervisor"
+         },
+         {
+            code: "gerente-1dad778c",
+            formId: "inpexisteGerente"
+         },
+         {
+            code: "diretor-5a8cce11",
+            formId: "inpexisteDiretor"
+         }
+      ];
 
-async function validPeopleInPositionsByTeam(teamName) {
-  const positions = [
-    {
-      code: "coordenador-9ce9538b",
-      formId: "inpexisteCoordenador"
-    },
-    {
-      code: "supervisor-1d1ef7b6",
-      formId: "inpexisteSupervisor"
-    },
-    {
-      code: "gerente-1dad778c",
-      formId: "inpexisteGerente"
-    },
-    {
-      code: "diretor-5a8cce11",
-      formId: "inpexisteDiretor"
-    }
-  ];
+      for (const position of positions) {
+         const response = await findAllUsersByTeamCodeAndPositionCode(teamCode, position.code);
 
-  const requesterTeamCode = await getRequesterTeamCode(teamName);
+         document.getElementById(position.formId).value = response.success.length == 0 ? "False" : "True";
+      }
+   }
 
-  for (const position of positions) {
-    const fetchData = await fetch(`https://netbiis.zeev.it/api/2/teams/code/${requesterTeamCode}/${position.code}/users`, fetchConfig);
+   document.getElementById("BtnSend").disabled = true;
 
-    const users = await fetchData.json();
+   const userId = document.getElementById("inpuserId").value;
 
-    document.getElementById(position.formId).value = users.length == 0 ? "False" : "True";
-  }
-}
+   const response = await findUserById(userId);
 
-const teamName = document.getElementById('inptime').value
+   const teamCode = response.success[0].fields.timeCod;
 
-await validPeopleInPositionsByTeam(teamName);
+   validPeopleInPositionsBy(teamCode).then(() => {
+      document.getElementById("BtnSend").disabled = false;
+   });
+});
